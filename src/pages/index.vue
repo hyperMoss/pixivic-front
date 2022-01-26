@@ -1,4 +1,5 @@
 <script setup lang="ts">
 
+
 </script>
-<template>test</template>
+<template>index</template>

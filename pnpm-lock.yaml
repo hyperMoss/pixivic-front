@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@heroicons/vue': ^1.0.5
   '@intlify/vite-plugin-vue-i18n': ^3.2.1
   '@typescript-eslint/parser': ^5.10.1
   '@vitejs/plugin-vue': ^2.0.0
@@ -24,6 +25,7 @@ specifiers:
   windicss: ^3.4.3
 
 dependencies:
+  '@heroicons/vue': 1.0.5_vue@3.2.29
   '@intlify/vite-plugin-vue-i18n': 3.2.1_vite@2.7.13+vue-i18n@9.0.0
   '@vueuse/core': 7.5.5_vue@3.2.29
   '@vueuse/head': 0.7.5_vue@3.2.29
@@ -106,6 +108,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@heroicons/vue/1.0.5_vue@3.2.29:
+    resolution: {integrity: sha512-idWtp20Fjr7mqnD7EdGDUDi83oWHnx3SwyuQY6GZyF33OApzpBOLxz7xa4t6rPOddGz9tI5RGnndLk+ake7ijQ==}
+    peerDependencies:
+      vue: '>= 3'
+    dependencies:
+      vue: 3.2.29
+    dev: false
 
   /@humanwhocodes/config-array/0.9.2:
     resolution: {integrity: sha512-UXOuFCGcwciWckOpmfKDq/GyhlTf9pN/BzG//x8p8zTOFEcGuA68ANXheFS0AGvy3qgZqLBUkMs7hqzqCKOVwA==}

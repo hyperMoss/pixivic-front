@@ -90,7 +90,7 @@ function getExists(param) {
 
 // 查看热门搜索标签
 function getHotTag(params) {
-  if (process.env.NODE_ENV === 'com') { return Promise.resolve({ status: 400 }) }
+  if (import.meta.VITE_NODE_ENV === 'com') { return Promise.resolve({ status: 400 }) }
   return axios({
     url: '/trendingTags',
     method: 'get',

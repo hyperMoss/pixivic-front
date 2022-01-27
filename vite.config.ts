@@ -11,6 +11,7 @@ const { resolve } = path
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  
   plugins: [
     Vue(),
     // https://github.com/hannoeru/vite-plugin-pages
@@ -51,4 +52,16 @@ export default defineConfig({
       'vue-demi',
     ],
   },
+  // server: {
+  //   proxy: {
+  //     // 使用 proxy 实例
+  //     '/': {
+  //       target: 'https://pix.ipv4.host',
+  //       changeOrigin: true,
+  //       configure: (proxy, options) => {
+  //         // proxy 是 'http-proxy' 的实例
+  //       }
+  //     }
+  //   }
+  // }
 })

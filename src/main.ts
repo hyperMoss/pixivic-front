@@ -1,11 +1,12 @@
 import { createApp } from 'vue'
-import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { createHead } from '@vueuse/head'
 
 import generatedRoutes from 'virtual:generated-pages'
 import { setupLayouts } from 'virtual:generated-layouts'
 
+import App from './App.vue'
+import i18n from './i18n'
 import 'virtual:windi.css'
 // windicss layers
 import 'virtual:windi-base.css'
@@ -24,4 +25,5 @@ const router = createRouter(
   { history: createWebHistory(), routes },
 )
 
-createApp(App).use(router).use(head).mount('#app')
+
+createApp(App).use(router).use(i18n).use(head).mount('#app')

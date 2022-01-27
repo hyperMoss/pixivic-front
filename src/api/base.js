@@ -1,9 +1,10 @@
 import axios from 'axios'
 import cookie from 'js-cookie'
-import i18n from '../i18n'
+import t from '@/i18n'
 // 创建axios实例
+console.log(import.meta.VITE_APP_BASE_API,'2123');
 const instance = axios.create({
-  baseURL: process.env.VUE_APP_BASE_API,
+  baseURL: import.meta.VITE_APP_BASE_API||'https://pix.ipv4.host',
   timeout: 20000,
   validateStatus(status) {
     return status >= 200 && status < 600
@@ -34,7 +35,7 @@ instance.interceptors.response.use(
       // 登录过期
       cookie.remove('jwt')
       localStorage.removeItem('user')
-      const message = i18n.tc('filter.loginError')
+      const message = t('filter.loginError')
       alert(message)
       setTimeout(() => { window.location.href = '/' }, 1000)
     }

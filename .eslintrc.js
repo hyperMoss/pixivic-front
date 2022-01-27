@@ -19,8 +19,8 @@ module.exports = {
   ],
   
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-console': import.meta.VITE_NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': import.meta.VITE_NODE_ENV === 'production' ? 'warn' : 'off',
     'import/named': 'off',
   
     // TS

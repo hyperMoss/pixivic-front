@@ -1,10 +1,5 @@
 <script lang="ts" >
-import { BeakerIcon } from '@heroicons/vue/solid'
-export default {
-  components: {
-    BeakerIcon,
-  },
-}
+
 
 </script>
 
@@ -15,7 +10,20 @@ export default {
         <!-- action -->
         <div class="flex items-center lg:hidden">
           <button class="inline-flex text-xl p-2">
-            <BeakerIcon class="h-5 w-5 text-blue-500" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 10h16M4 14h16M4 18h16"
+              />
+            </svg>
           </button>
         </div>
         <!-- icon -->
@@ -24,7 +32,11 @@ export default {
             href="/"
             class="inline-flex items-center text-xl lg:text-2xl font-semibold"
           >
-            Pixivic
+            <img
+              src="@/assets/icon.svg"
+              class="inline-flex mr-1 lg:mr-3 h-8 lg:h-10"
+              alt="logo"
+            >
           </a>
         </div>
         <!-- search -->

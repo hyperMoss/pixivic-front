@@ -4,7 +4,6 @@ import { createHead } from '@vueuse/head'
 
 import generatedRoutes from 'virtual:generated-pages'
 import { setupLayouts } from 'virtual:generated-layouts'
-
 import App from './App.vue'
 import i18n from './i18n'
 import 'virtual:windi.css'
@@ -25,5 +24,9 @@ const router = createRouter(
   { history: createWebHistory(), routes },
 )
 
+const app = createApp(App)
 
-createApp(App).use(router).use(i18n).use(head).mount('#app')
+const win:any = window
+window.Vue =app 
+
+app.use(router).use(i18n).use(head).mount('#app')

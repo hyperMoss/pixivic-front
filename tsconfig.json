@@ -20,6 +20,6 @@
       "vite-plugin-vue-layouts/client"
     ],
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/api/base.js"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/api/base.js", "typings/env.d.ts"],
   "exclude": ["node_modules", "dist"]
 }

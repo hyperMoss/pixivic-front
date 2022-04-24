@@ -2,9 +2,9 @@ import axios from 'axios'
 import cookie from 'js-cookie'
 import t from '@/i18n'
 // 创建axios实例
-console.log(import.meta.VITE_APP_BASE_API,'2123');
+console.log(import.meta.VITE_APP_BASE_API, 'axios');
 const instance = axios.create({
-  baseURL: import.meta.VITE_APP_BASE_API||'https://pix.ipv4.host',
+  baseURL: import.meta.VITE_APP_BASE_API || 'https://pix.ipv4.host',
   timeout: 20000,
   validateStatus(status) {
     return status >= 200 && status < 600

@@ -19,17 +19,6 @@ export default defineConfig({
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
     Layouts(),
     WindiCSS(),
-    AutoImport({
-      imports: [
-        'vue',
-        'vue-router',
-        'vue-i18n',
-        '@vueuse/head',
-        '@vueuse/core',
-        'vitest',
-      ],
-      dts: 'src/auto-imports.d.ts',
-    }),
     VueI18n({
       runtimeOnly: true,
       compositionOnly: true,

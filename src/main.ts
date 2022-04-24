@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import { createStore } from 'vuex'
 import { createRouter, createWebHistory } from 'vue-router'
 import { createHead } from '@vueuse/head'
 
@@ -23,10 +24,21 @@ const head = createHead()
 const router = createRouter(
   { history: createWebHistory(), routes },
 )
-
+const store = createStore({
+  state() {
+    return {
+      count: 0
+    }
+  },
+  mutations: {
+    increment(state) {
+      state.count++
+    }
+  }
+})
 const app = createApp(App)
 
-const win:any = window
-window.Vue =app 
+const win: any = window
+window.Vue = app
 
-app.use(router).use(i18n).use(head).mount('#app')
+app.use(router).use(i18n).use(head).use(store).mount('#app')

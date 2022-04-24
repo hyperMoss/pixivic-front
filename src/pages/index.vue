@@ -1,49 +1,49 @@
 <template>
-  <RecycleScroller  
-    class="scroller"
-    :items="pictureList"
-    :item-size="32"
-    key-field="id"
-    v-slot="{ item }">
-      <div class="user">
-      {{ item.title }}
-    </div>
-  </RecycleScroller>
+  <virtual-list :key="identifier" :list="pictureList" @infinite="infinite">
+  </virtual-list>
 </template>
 
 <script setup lang="ts">
-import { RecycleScroller } from 'vue-virtual-scroller'
-import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
-import Item from './Item.vue';
- 
+import dayjs from 'dayjs';
+import VirtualList from '@/components/Virtual-List/VirtualList.vue';
+import { getClient } from '@/util/dom';
 import api from '@/api';
+import { ref, onMounted, computed } from 'vue';
 
+let scrollHeight = computed(() => getClient().height - 60);
 
+let pictureList = ref([]);
+let user = ref([]);
+let fatherMounted = false;
+let page = 1;
+let mode = 'day';
+let date = dayjs(new Date()).add(-3, 'days').format('YYYY-MM-DD');
+const identifier = new Date();
 
-const itemComponent = Item;
-const pictureList = ref([]);
-
-const getList = async () => {
+async function infinite($state) {
   const res = await api.rank.getRank({
-    page: 1,
-    date: '2022-01-25',
-    mode: 'day',
+    page: page++,
+    date: date,
+    mode: mode,
   });
-  pictureList.value = res.data.data;
-};
+  if (!res.data.data) {
+    $state.complete();
+  } else {
+    pictureList.value = pictureList.value.concat(
+      res.data.data.filter(
+        (e) => e.xrestrict === 0 && e.sanityLevel <= (user ? 3 : 3)
+      )
+    );
+    $state.loaded();
+  }
+}
 
 onMounted(async () => {
-  await getList();
-  console.log(pictureList);
-
+  fatherMounted = true;
 });
 </script>
 
 <style scoped>
-.scroller {
-  height: 100%;
-}
-
 .user {
   height: 32%;
   padding: 0 12px;
